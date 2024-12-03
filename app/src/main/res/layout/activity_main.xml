@@ -14,15 +14,14 @@
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCapicua" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btColores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="372dp"
         android:layout_marginEnd="16dp"
         android:text="@string/colores"
         android:textSize="40sp"
@@ -41,17 +40,5 @@
         app:layout_constraintEnd_toEndOf="@+id/btColores"
         app:layout_constraintStart_toStartOf="@+id/btColores"
         app:layout_constraintTop_toBottomOf="@+id/btColores" />
-
-    <Button
-        android:id="@+id/btCapicua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="1dp"
-        android:text="@string/capicua"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/btColores"
-        app:layout_constraintStart_toStartOf="@+id/btColores"
-        app:layout_constraintTop_toBottomOf="@+id/btMayor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

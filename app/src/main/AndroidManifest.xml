@@ -21,8 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Colores" />
-        <activity android:name=".Mayor" />
+        <activity android:name=".Colores"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".Mayor"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

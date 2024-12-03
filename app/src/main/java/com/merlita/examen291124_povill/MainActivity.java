@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         tv = findViewById(R.id.tv);
         btColores = findViewById(R.id.btColores);
         btMayor = findViewById(R.id.btMayor);
-        btCapicua = findViewById(R.id.btCapicua);
+//        btCapicua = findViewById(R.id.btCapicua);
 
         btColores.setOnClickListener(new View.OnClickListener(){
             @Override

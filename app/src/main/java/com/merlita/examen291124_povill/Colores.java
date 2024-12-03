@@ -1,5 +1,6 @@
 package com.merlita.examen291124_povill;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.gridlayout.widget.GridLayout;
 
@@ -27,11 +30,13 @@ public class Colores extends AppCompatActivity {
     ArrayList<Integer> colores = new ArrayList<>();
     private int[] ids = new int[4];
     private int giro=0;
+    Intent upIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.colores);
+        upIntent = getParentActivityIntent();
 
 
         p = new Point();
@@ -44,10 +49,14 @@ public class Colores extends AppCompatActivity {
 
 
         añadirBotones();
-
-
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(upIntent);
+        finish(); // Esto asegura que la actividad actual se cierre
+    }
     private void añadirBotones() {
         ViewGroup.LayoutParams lp =
                 new ViewGroup.LayoutParams(
@@ -76,6 +85,10 @@ public class Colores extends AppCompatActivity {
                     }
                     if(b.getId()==ids[3]){
                         giraHorario();
+                    }
+                    if(b.getId()==ids[1]){
+                        startActivity(upIntent);
+                        finish();
                     }
 
                 }

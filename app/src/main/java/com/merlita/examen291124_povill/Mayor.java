@@ -1,6 +1,7 @@
 package com.merlita.examen291124_povill;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -22,11 +24,14 @@ public class Mayor extends AppCompatActivity {
     Date d1, d2;
     String ganador;
 
+    Intent upIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mayor);
+        upIntent = getParentActivityIntent();
+
 
         et1 = findViewById(R.id.etNombre1);
         et2 = findViewById(R.id.etNombre2);
@@ -74,6 +79,13 @@ public class Mayor extends AppCompatActivity {
             }
         });
 
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+            }
+        };
+        //requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 
 
 
@@ -97,6 +109,14 @@ public class Mayor extends AppCompatActivity {
             d2 = new Date(year, month, day);
         }
         Toast.makeText(this, getString(R.string.date) + dateMessage, Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(upIntent);
+        finish(); // Esto asegura que la actividad actual se cierre
     }
 
 }
